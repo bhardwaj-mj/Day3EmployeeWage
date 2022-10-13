@@ -8,8 +8,7 @@ public class EmployeeWage {
     static final int IS_PART_TIME=1;
     static final int WORKING_DAYS_PER_MONTH=20;
     static final int WORKING_HOURS_PER_MONTH=100;
-
-    public static void main(String[] args) {
+    public static void empWage(){
         int day=1;
         int totalWages=0;
         int empHours=0;
@@ -31,10 +30,14 @@ public class EmployeeWage {
                     System.out.println("Employee is absent");
             }
             totalWages += dailyWage;
-            System.out.println("Daily Wage of employee for "+day+" is => " + dailyWage);
+            System.out.println("Daily Wage of employee for day "+day+" is => " + dailyWage);
             day++;
         }
         System.out.println("Total working hours of employee is => "+empHours);
         System.out.println("Tatal Wages of employee is => "+totalWages);
+    }
+
+    public static void main(String[] args) {
+        empWage();
     }
 }
