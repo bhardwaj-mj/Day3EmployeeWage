@@ -5,9 +5,22 @@ public class EmployeeWage {
     static final int PART_TIME_HOUR=4;
     static final int IS_FULL_TIME=2;
     static final int IS_PART_TIME=1;
-    public static void empWage(int wagePerHour,int workingDaysPerMonth,int workingHoursPerMonth){
+    private String companyName;
+    private int wagePerHour;
+    private int workingDaysPerMonth;
+    private int workingHoursPerMonth;
+    private int totalWages=0;
+
+    public EmployeeWage(String companyName, int wagePerHour, int workingDaysPerMonth, int workingHourPerMonth) {
+        this.companyName = companyName;
+        this.wagePerHour = wagePerHour;
+        this.workingDaysPerMonth = workingDaysPerMonth;
+        this.workingHoursPerMonth = workingHourPerMonth;
+    }
+
+    public void empWage(){
         int day=1;
-        int totalWages=0;
+
         int empHours=0;
         while(day<=workingDaysPerMonth && empHours<=workingHoursPerMonth) {
             int employeeAttendance = (int) Math.floor(Math.random() * 10) % 3;
@@ -34,13 +47,17 @@ public class EmployeeWage {
         System.out.println("Tatal Wages of employee is => "+totalWages);
     }
 
+    @Override
+    public String toString() {
+        return "Total wage for company " +companyName+ " is:"+totalWages;
+    }
+
     public static void main(String[] args) {
-        EmployeeWage amazon=new EmployeeWage();
-        System.out.println("Employee wage for Amazon => ");
-        amazon.empWage(20,20,80);
-        System.out.println("Employee wage for Flipkart => ");
-        amazon.empWage(15,25,100);
-        System.out.println("Employee wage for Google => ");
-        amazon.empWage(30,18,75);
+    EmployeeWage google=new EmployeeWage("Google",20,15,80);
+    EmployeeWage amazon=new EmployeeWage("Amazon",30,20,80);
+        google.empWage();
+        System.out.println(google);
+        amazon.empWage();
+        System.out.println(amazon);
     }
 }
